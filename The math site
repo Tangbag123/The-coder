@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- HTML Codes by Quackit.com -->
+<title>
+This is a math website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="It has a bunch of different math problems ">
+<style>
+body {background-color:#76bb40;background-repeat:no-repeat;background-position:top left;background-attachment:fixed;}
+h1{font-family:Arial, sans-serif;color:#000000;background-color:#76bb40;}
+p {font-family:Georgia, serif;font-size:14px;font-style:italic;font-weight:normal;color:#fdc700;background-color:#76bb40;}
+</style>
+</head>
+<body>
+<h1>Math problems</h1>
+<p>I will be adding 6 problems daily </p>
+<p>100 times 100</p>
+<p>2.364 divided by 26</p>
+<p>4 times200</p>
+<p>6+8 times 6 divided by 2</p>
+<p>89 times 89 </p>
+<p>2345 times 2348</p>
+<p>678+126735</p>
+<head> 
+    <title>HTML Calculator</title> 
+  
+    <!-- For styling -->
+    <style> 
+        table { 
+            border: 1px solid black; 
+            margin-left: auto; 
+            margin-right: auto; 
+        } 
+          
+        input[type="button"] { 
+            width: 100%; 
+            padding: 20px 40px; 
+            background-color: green; 
+            color: white; 
+            font-size: 24px; 
+            font-weight: bold; 
+            border: none; 
+            border-radius: 5px; 
+        } 
+          
+        input[type="text"] { 
+            padding: 20px 30px; 
+            font-size: 24px; 
+            font-weight: bold; 
+            border: none; 
+            border-radius: 5px; 
+            border: 2px solid black; 
+        } 
+    </style> 
+</head> 
+  
+<body> 
+table { 
+            border: 1px solid black; 
+            margin-left: auto; 
+            margin-right: auto; 
+        } 
+          
+        input[type="button"] { 
+            width: 100%; 
+            padding: 20px 40px; 
+            background-color: green; 
+            color: white; 
+            font-size: 24px; 
+            font-weight: bold; 
+            border: none; 
+            border-radius: 5px; 
+        } 
+<body> 
+  
+    <!-- Create table -->
+    <table id="calcu"> 
+        <tr> 
+            <td colspan="3"> 
+                <input type="text" id="result"> 
+            </td> 
+            <td><input type="button" value="c"></td> 
+        </tr> 
+  
+        <tr> 
+            <td><input type="button" value="1"></td> 
+            <td><input type="button" value="2"></td> 
+            <td><input type="button" value="3"></td> 
+            <td><input type="button" value="/"></td> 
+        </tr> 
+        <tr> 
+            <td><input type="button" value="4"></td> 
+            <td><input type="button" value="5"></td> 
+            <td><input type="button" value="6"></td> 
+            <td><input type="button" value="*"></td> 
+        </tr> 
+        <tr> 
+            <td><input type="button" value="7"></td> 
+            <td><input type="button" value="8"></td> 
+            <td><input type="button" value="9"></td> 
+            <td><input type="button" value="-"></td> 
+        </tr> 
+        <tr> 
+            <td><input type="button" value="0"></td> 
+            <td><input type="button" value="."></td> 
+            <td><input type="button" value="="></td> 
+            <td><input type="button" value="+"></td> 
+        </tr> 
+    </table> 
+</body>
+</html>
