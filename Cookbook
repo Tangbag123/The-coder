@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Howards Cookbook</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif
+            margin: 20px
+            background-color: #f8f8f8
+            color: #333
+        }
+        h1, h2 {
+            color: #444
+        }
+        form {
+            background-color: #fff
+            padding: 20px
+            border-radius: 8px
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+            margin-bottom: 20px
+        }
+        label {
+            display: block
+            margin-bottom: 8px
+        }
+        input, textarea {
+            width: 100%
+            padding: 8px
+            margin-bottom: 16px
+            box-sizing: border-box
+        }
+        button {
+            background-color: #4caf50
+            color: #fff
+            padding: 10px 16px
+            border: none
+            border-radius: 4px
+            cursor: pointer
+        }
+        button:hover {
+            background-color: #45a049
+        }
+        ul {
+            list-style: none
+            padding: 0
+        }
+        li {
+            background-color: #fff
+            padding: 15px
+            margin-bottom: 10px
+            border-radius: 8px
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+        }
+        li strong {
+            font-size: 1.2em
+            color: #333
+        }
+        li em {
+            color: #555
+            display: block
+            margin-top: 10px
+        }
+        li button {
+            margin-top: 8px
+        }
+    </style>
+</head>
+<body>
+<h1>The Howards Cookbook</h1>
+<form id="recipeForm">
+    <label for="recipeName">Recipe Name:</label>
+    <input type="text" id="recipeName" required>
+    <label for="ingredients">Ingredients:</label>
+    <textarea id="ingredients" rows="4" required></textarea>
+    <label for="steps">Steps:</label>
+    <textarea id="steps" rows="4" required></textarea>
+    <label for="description">Description:</label>
+    <textarea id="description" rows="2" required></textarea>
+    <button type="button" onclick="addRecipe()">Add Recipe</button>
+</form>
+<h2>Recipes</h2>
+<ul id="recipeList"></ul>
+  
+<script>
+    function addRecipe() {
+        var recipeName = document.getElementById("recipeName").value
+        var ingredients = document.getElementById("ingredients").value
+        var steps = document.getElementById("steps").value
+        var description = document.getElementById("description").value
+        var recipe = {
+            name: recipeName,
+            ingredients: ingredients,
+            steps: steps,
+            description: description
+        }
+        var recipes = JSON.parse(localStorage.getItem("recipes")) || []
+        recipes.push(recipe)
+        localStorage.setItem("recipes", JSON.stringify(recipes))
+        document.getElementById("recipeForm").reset()
+        displayRecipes()
+    }
+    function displayRecipes() {
+        var recipeList = document.getElementById("recipeList")
+        recipeList.innerHTML = ""
+        var recipes = JSON.parse(localStorage.getItem("recipes")) || []
+        recipes.forEach(function (recipe, index) {
+            var li = document.createElement("li")
+            li.innerHTML = `<strong>${recipe.name}</strong>
+                            <em><b>Ingredients:</b> ${recipe.ingredients}</em>
+                            <em><b>Steps:</b> ${recipe.steps}</em>
+                            <em>${recipe.description}</em>
+                            <button onclick="editRecipe(${index})">Edit</button>
+                            <button onclick="removeRecipe(${index})">Remove</button>`
+            recipeList.appendChild(li)
+        })
+    }
+    function removeRecipe(index) {
+        var recipes = JSON.parse(localStorage.getItem("recipes")) || []
+        recipes.splice(index, 1)
+        localStorage.setItem("recipes", JSON.stringify(recipes))
+        displayRecipes()
+    }
+    function editRecipe(index) {
+        var recipes = JSON.parse(localStorage.getItem("recipes")) || []
+        var recipeToEdit = recipes[index]
+        document.getElementById("recipeName").value = recipeToEdit.name
+        document.getElementById("ingredients").value = recipeToEdit.ingredients
+        document.getElementById("steps").value = recipeToEdit.steps
+        document.getElementById("description").value = recipeToEdit.description
+        recipes.splice(index, 1)
+        localStorage.setItem("recipes", JSON.stringify(recipes))
+        displayRecipes()
+    }
+    displayRecipes()
+</script>
+
+</body>
+</html>
